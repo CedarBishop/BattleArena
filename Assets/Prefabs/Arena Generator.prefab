@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8522004084981911456
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8522004084981911458}
+  - component: {fileID: 8522004084981911459}
+  m_Layer: 0
+  m_Name: Arena Generator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8522004084981911458
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8522004084981911456}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8522004084981911459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8522004084981911456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd2c96b16522df344a2dcea38aec96c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxArenaSize: {x: 20, y: 3, z: 20}
+  emptyBlockChance: {x: 22, y: 24}
+  blocks:
+  - {fileID: 2877689723708021653, guid: 4ad73ba989aa5da409a6e56650384bdd, type: 3}
+  - {fileID: 8718724655211144594, guid: c9be73b5547cac049ae1f5e90612f454, type: 3}
+  - {fileID: 2877689723708021653, guid: d4cebd17457a40a49b13ca4aadc60edf, type: 3}
+  halfBlocks:
+  - {fileID: 3883284837524230182, guid: 6f5fd4f8520a2814aadf830bfaa906f1, type: 3}
+  - {fileID: 4998078920981636716, guid: 2ff7e9690b28180439c89ff6acd248e3, type: 3}
+  - {fileID: 2612723004488509737, guid: 8511c82d411b6d74c8edb48399fe92e9, type: 3}
+  blockLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  outerRimFraction: 6
+  outerRimChance: 4
+  cornerChance: 10
