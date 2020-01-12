@@ -8,7 +8,6 @@ public class ArenaGeneration : MonoBehaviour
     public Vector2Int emptyBlockChance = new Vector2Int(18,24);
 
     public List<Block> blocks = new List<Block>();
-    public List<Block> halfBlocks = new List<Block>();
     public LayerMask blockLayer;
 
     public int outerRimFraction = 8;
@@ -60,19 +59,9 @@ public class ArenaGeneration : MonoBehaviour
                     {
                         if (blocks != null)
                         {
-                            if (Physics.Raycast(transform.position,Vector3.down,0.5f,blockLayer) || y == 0)
+                            if (Physics.Raycast(transform.position,Vector3.down,1f,blockLayer) || y == 0)
                             {
-                                Instantiate(blocks[Random.Range(0, blocks.Count)], transform.position, Quaternion.identity);
-                                //if (y > 0)
-                                //{
-                                //    print(y);
-                                //    Instantiate(halfBlocks[Random.Range(0, halfBlocks.Count)], transform.position, Quaternion.identity);
-
-                                //}
-                                //else
-                                //{
-                                //    Instantiate(blocks[Random.Range(0, blocks.Count)], transform.position, Quaternion.identity);
-                                //}
+                                Instantiate(blocks[Random.Range(0, blocks.Count)], transform.position, Quaternion.identity);                           
 
                             }                                            
                         }

@@ -18,6 +18,9 @@ public class PlayerAim : MonoBehaviour
 
     private void Update()
     {
+
+
+
         Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
         if (Physics.Raycast(ray,out hit,1000.0f))
@@ -29,7 +32,7 @@ public class PlayerAim : MonoBehaviour
         if (Input.GetButtonDown("Fire1"))
         {
             Projectile bullet = Instantiate(basicBullet, gunTip.position, transform.rotation);
-            //bullet.Fire(transform.rotation);
+
         }
         
     }
