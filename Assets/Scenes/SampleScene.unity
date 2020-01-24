@@ -466,12 +466,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8522004084981911459, guid: d8baaea968ec95b45a18f94effd10c95,
         type: 3}
-      propertyPath: emptyBlockChance.x
-      value: 22
-      objectReference: {fileID: 0}
-    - target: {fileID: 8522004084981911459, guid: d8baaea968ec95b45a18f94effd10c95,
-        type: 3}
-      propertyPath: maxArenaSize.y
+      propertyPath: blocks.Array.size
       value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -496,7 +491,7 @@ PrefabInstance:
     - target: {fileID: 8846291243905836426, guid: e5294c17f37ab9b4d8eb4ddd22ce57e6,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 15
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 8846291243905836426, guid: e5294c17f37ab9b4d8eb4ddd22ce57e6,
         type: 3}

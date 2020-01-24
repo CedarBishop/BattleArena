@@ -43,16 +43,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd2c96b16522df344a2dcea38aec96c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxArenaSize: {x: 20, y: 3, z: 20}
+  maxArenaSize: {x: 20, y: 20}
   emptyBlockChance: {x: 22, y: 24}
+  wallChance: {x: 1, y: 50}
   blocks:
   - {fileID: 2877689723708021653, guid: 4ad73ba989aa5da409a6e56650384bdd, type: 3}
   - {fileID: 8718724655211144594, guid: c9be73b5547cac049ae1f5e90612f454, type: 3}
   - {fileID: 2877689723708021653, guid: d4cebd17457a40a49b13ca4aadc60edf, type: 3}
-  halfBlocks:
-  - {fileID: 3883284837524230182, guid: 6f5fd4f8520a2814aadf830bfaa906f1, type: 3}
-  - {fileID: 4998078920981636716, guid: 2ff7e9690b28180439c89ff6acd248e3, type: 3}
-  - {fileID: 2612723004488509737, guid: 8511c82d411b6d74c8edb48399fe92e9, type: 3}
+  walls:
+  - {fileID: 2877689723708021652, guid: d35a26e9973541d48802b18406ecb71f, type: 3}
+  - {fileID: 2877689723708021652, guid: 01c4d2ab58332ce488eecb7d33312315, type: 3}
   blockLayer:
     serializedVersion: 2
     m_Bits: 256
