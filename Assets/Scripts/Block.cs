@@ -7,7 +7,6 @@ public class Block : MonoBehaviour
 {
     public int health = 3;
 
-
     public void LoseHealth (int damage)
     {
         health -= damage;

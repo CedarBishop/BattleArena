@@ -16,6 +16,8 @@ public class ArenaGeneration : MonoBehaviour
     public int outerRimChance = 2;
     public int cornerChance = 5;
 
+    public Player player;
+
     void Start()
     {
         StartCoroutine("GenerateArena");
@@ -60,12 +62,10 @@ public class ArenaGeneration : MonoBehaviour
                     if (blocks != null)
                     {
                         Instantiate(blocks[Random.Range(0, blocks.Count)], transform.position, Quaternion.identity);
-
                     }
-
-                }
-                yield return null;
+                }                
             }
+            yield return null;
         }
 
         for (int z = 0; z < maxArenaSize.y; z++)
@@ -78,9 +78,11 @@ public class ArenaGeneration : MonoBehaviour
                 {
                     Instantiate(walls[Random.Range(0, walls.Count)], transform.position, Quaternion.identity);
 
-                }
-                yield return null;
+                }                
             }
+            yield return null;
         }
-    }
+
+        Instantiate(player,new Vector3(maxArenaSize.x/2,1,maxArenaSize.y/2),Quaternion.identity);
+    }    
 }

@@ -5,7 +5,10 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class Grenade : MonoBehaviour
 {
+    public float timeBeforeExplosion = 3;
     public float explosionRadius = 2.5f;
+    public ParticleSystem explosionParticle;
+
     void Start()
     {
         StartCoroutine("Explode");
@@ -16,6 +19,9 @@ public class Grenade : MonoBehaviour
     {
         yield return new WaitForSeconds(3);
 
+        ParticleSystem p = Instantiate(explosionParticle,transform.position,Quaternion.identity);
+        p.Play();
+        Destroy(p.gameObject,1);
         Collider[] colliders = Physics.OverlapSphere(transform.position, explosionRadius);
         if (colliders != null)
         {
@@ -30,5 +36,14 @@ public class Grenade : MonoBehaviour
        
 
         Destroy(gameObject);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Ocean")
+        {
+            StopAllCoroutines();
+            Destroy(gameObject);
+        }
     }
 }

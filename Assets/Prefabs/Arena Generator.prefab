@@ -49,7 +49,6 @@ MonoBehaviour:
   blocks:
   - {fileID: 2877689723708021653, guid: 4ad73ba989aa5da409a6e56650384bdd, type: 3}
   - {fileID: 8718724655211144594, guid: c9be73b5547cac049ae1f5e90612f454, type: 3}
-  - {fileID: 2877689723708021653, guid: d4cebd17457a40a49b13ca4aadc60edf, type: 3}
   walls:
   - {fileID: 2877689723708021652, guid: d35a26e9973541d48802b18406ecb71f, type: 3}
   - {fileID: 2877689723708021652, guid: 01c4d2ab58332ce488eecb7d33312315, type: 3}
@@ -59,3 +58,4 @@ MonoBehaviour:
   outerRimFraction: 6
   outerRimChance: 4
   cornerChance: 10
+  player: {fileID: 8846291243905836424, guid: e5294c17f37ab9b4d8eb4ddd22ce57e6, type: 3}
