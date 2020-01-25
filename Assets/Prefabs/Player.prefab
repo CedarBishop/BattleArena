@@ -98,6 +98,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 4
   gravity: -9.81
+  dashDistance: 0
+  dashTime: 0
   groundCheck: {fileID: 8846291243996709327}
   groundCheckLength: 0.5
   groundLayer:
@@ -116,6 +118,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   basicBullet: {fileID: -3859773694469398375, guid: a9515b61612ba5049867d6389dc1ae2f,
+    type: 3}
+  basicGrenade: {fileID: 2459703789439713343, guid: ea4a3313fd75316409ba74926841a34b,
     type: 3}
   gunTip: {fileID: 12212696358732842}
 --- !u!1 &8846291243996709324
