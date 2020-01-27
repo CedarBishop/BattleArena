@@ -523,6 +523,7 @@ GameObject:
   - component: {fileID: 8846291243905836424}
   - component: {fileID: 1297876012}
   - component: {fileID: 4677010669565815733}
+  - component: {fileID: 1027122563786937120}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -625,6 +626,43 @@ MonoBehaviour:
   deflectTime: 1
   deflectTimerImage: {fileID: 5659541327808283286}
   deflectCooldownTime: 5
+--- !u!114 &1027122563786937120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8846291243905836425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: ab482484610ebc5498c3955ee0c395a8,
+    type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.InputSystem.PlayerInput+DeviceLostEvent, Unity.InputSystem,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.InputSystem.PlayerInput+DeviceRegainedEvent, Unity.InputSystem,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.InputSystem.PlayerInput+ControlsChangedEvent, Unity.InputSystem,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: Keyboard & Mouse
+  m_DefaultActionMap: Player
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1 &8846291243996709324
 GameObject:
   m_ObjectHideFlags: 0

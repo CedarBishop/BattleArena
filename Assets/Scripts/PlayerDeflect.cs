@@ -22,15 +22,15 @@ public class PlayerDeflect : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            if (canDeflect)
-            {
-                StartCoroutine("Deflect");
-            }
-        }
-
         DeflectCooldown();
+    }
+
+    void OnDeflect ()
+    {
+        if (canDeflect)
+        {
+            StartCoroutine("Deflect");
+        }
     }
 
     void DeflectCooldown()
@@ -56,8 +56,7 @@ public class PlayerDeflect : MonoBehaviour
         coolDownTimer = deflectCooldownTime;
         canDeflect = false;
         yield return new WaitForSeconds(deflectTime);
-        deflector.SetActive(false);
-        
+        deflector.SetActive(false);        
     }
 
 }

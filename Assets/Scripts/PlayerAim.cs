@@ -1,10 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class PlayerAim : MonoBehaviour
 {
+    private PlayerInput playerInput;
+
     public Projectile basicBullet;
     public Grenade basicGrenade;
     public Transform gunTip;
@@ -21,10 +24,14 @@ public class PlayerAim : MonoBehaviour
     private float grenadeTimer;
     
     Camera mainCamera;
-    
-    
+    Vector3 point;
+
+    public float grenadeThrowDistance = 10;
+
+
     private void Start()
     {
+        playerInput = GetComponent<PlayerInput>();
         mainCamera = Camera.main;
         canShoot = true;
         canThrowGrenade = true;
@@ -35,35 +42,19 @@ public class PlayerAim : MonoBehaviour
 
     private void Update()
     {
-
-        Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
-        if (Physics.Raycast(ray,out hit,1000.0f))
+        if (playerInput.currentControlScheme == "Keyboard & Mouse")
         {
-            Vector3 point = new Vector3(hit.point.x,transform.position.y, hit.point.z);
-            transform.LookAt(point);
-
-
-            if (Input.GetButtonDown("Fire1"))
+            Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+            if (Physics.Raycast(ray, out hit, 1000.0f))
             {
-                if (canShoot)
-                {
-                    Projectile bullet = Instantiate(basicBullet, gunTip.position, transform.rotation);
-                    shootTimer = shootDelayTime;
-                    canShoot = false;
-                }
-            }
-            if (Input.GetButtonDown("Fire2"))
-            {
-                if (canThrowGrenade)
-                {
-                    Grenade grenade = Instantiate(basicGrenade, gunTip.position, Quaternion.identity);
-                    grenade.GetComponent<Rigidbody>().velocity = CalculateGrenadeVelocity(point, gunTip.position, 1.0f);
-                    grenadeTimer = grenadeDelayTime;
-                    canThrowGrenade = false;
-                }
+                point = new Vector3(hit.point.x, transform.position.y, hit.point.z);
+                transform.LookAt(point);
             }
         }
+
+
+
 
 
         ShootCountdown();
@@ -122,5 +113,36 @@ public class PlayerAim : MonoBehaviour
 
             GrenadeRefillImage.fillAmount = (grenadeTimer / grenadeDelayTime);
         }
+    }
+
+    void OnFire ()
+    {
+        if (canShoot)
+        {
+            Projectile bullet = Instantiate(basicBullet, gunTip.position, transform.rotation);
+            shootTimer = shootDelayTime;
+            canShoot = false;
+        }
+    }
+
+    void OnGrenade ()
+    {
+        if (canThrowGrenade)
+        {
+            Grenade grenade = Instantiate(basicGrenade, gunTip.position, Quaternion.identity);
+            grenade.GetComponent<Rigidbody>().velocity = CalculateGrenadeVelocity(point, gunTip.position, 1.0f);
+            grenadeTimer = grenadeDelayTime;
+            canThrowGrenade = false;
+        }
+    }
+
+    void OnLook (InputValue value)
+    {
+        if (playerInput.currentControlScheme != "Keyboard & Mouse")
+        {
+            Vector2 target = value.Get<Vector2>() * grenadeThrowDistance;
+            point = transform.position + new Vector3(target.x, 0, target.y);
+            transform.LookAt(point);
+        }        
     }
 }

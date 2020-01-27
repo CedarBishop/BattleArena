@@ -496,5 +496,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1676873950, guid: d8baaea968ec95b45a18f94effd10c95, type: 3}
+      propertyPath: m_SplitScreen
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d8baaea968ec95b45a18f94effd10c95, type: 3}

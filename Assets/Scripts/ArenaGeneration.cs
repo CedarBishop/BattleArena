@@ -17,6 +17,7 @@ public class ArenaGeneration : MonoBehaviour
     public int cornerChance = 5;
 
     public Player player;
+    private bool canSpawnPlayer;
 
     void Start()
     {
@@ -82,7 +83,5 @@ public class ArenaGeneration : MonoBehaviour
             }
             yield return null;
         }
-
-        Instantiate(player,new Vector3(maxArenaSize.x/2,1,maxArenaSize.y/2),Quaternion.identity);
-    }    
+    }        
 }

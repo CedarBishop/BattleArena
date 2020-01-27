@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(CharacterController))]
 public class Player : MonoBehaviour
@@ -17,7 +18,7 @@ public class Player : MonoBehaviour
     public LayerMask groundLayer;
 
     private CharacterController characterController;
-    private Vector3 movementDirection;
+    private Vector2 movementDirection;
     private Vector3 movementVelocity;
     private bool isGrounded;
     private float yVelocity = 0;
@@ -30,19 +31,12 @@ public class Player : MonoBehaviour
         characterController = GetComponent<CharacterController>();
     }
 
-    
-    void Update()
+   
+    void OnDash()
     {
-       
-        movementDirection = new Vector3(Input.GetAxis("Horizontal"),0, Input.GetAxis("Vertical"));
-        
-
-        if (Input.GetKeyDown(KeyCode.LeftShift))
-        {
-            isDashing = true;
-            dashVelocity = (transform.forward * dashDistance * Time.fixedDeltaTime) / dashTime;
-            dashTimer = dashTime;
-        }
+        isDashing = true;
+        dashVelocity = (transform.forward * dashDistance * Time.fixedDeltaTime) / dashTime;
+        dashTimer = dashTime;
     }
 
     private void FixedUpdate()
@@ -61,8 +55,8 @@ public class Player : MonoBehaviour
             print("In Air");
             yVelocity += (gravity * Time.fixedDeltaTime);
         }
-
-        movementVelocity = movementDirection.normalized * movementSpeed * Time.fixedDeltaTime;
+        movementDirection.Normalize();
+        movementVelocity = new Vector3(movementDirection.x,0,movementDirection.y) * movementSpeed * Time.fixedDeltaTime;
         characterController.Move(new Vector3(movementVelocity.x, yVelocity * Time.fixedDeltaTime, movementVelocity.z));
     }
 
@@ -83,5 +77,9 @@ public class Player : MonoBehaviour
         
     }
 
-   
+    private void OnMove(InputValue value)
+    {
+        movementDirection = value.Get<Vector2>();
+        print(movementDirection);
+    }
 }
